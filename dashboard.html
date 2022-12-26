@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Dashboard</title>
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+.grid-container {
+  display: grid;
+  padding: 10px;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2,1fr);
+}
+.grid-item {
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.grid-item i{
+    font-size: 2.5em;
+}
+.grid-item p{
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.account-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.account-info p{
+    font-size: 1.05em;
+    margin-top: 10px;
+}
+.account-info button{
+    padding: 5px 10px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: #CB4335;
+}
+
+ </style>
+</head>
+<body>
+
+ <div class="account-info">
+    <h2>Dashboard</h2>
+    <p id="user_name_tv">Welcome, roman@gmail.com</p>
+    <button id="logout_btn">Logout</button>
+ </div></br>
+
+ <div class="grid-container">
+    <div class="grid-item">
+        <i class='bx bxs-devices'></i>
+        <p>Recharge</p>
+    </div>
+    <div class="grid-item">
+        <i class='bx bxs-receipt'></i>
+        <p>Bill Payments</p>
+    </div>
+    <div class="grid-item">
+        <i class='bx bxs-shield-plus'></i>
+        <p>Insurance</p>
+    </div>  
+    <div class="grid-item">
+        <i class='bx bx-transfer'></i>
+        <p>Domestic Money bx-transfer</p>
+    </div>
+    <div class="grid-item">
+        <i class='bx bx-pulse' ></i>
+        <p>LIC Premium</p>
+    </div>
+    <div class="grid-item">
+        <i class='bx bx-trip'></i>
+        <p>Travel</p>
+    </div>   
+ </div>
+
+ <script>
+    console.log(sessionStorage.getItem("bsallinone_id"));
+    document.querySelector("#logout_btn").addEventListener("click",()=>{
+      sessionStorage.clear()
+      window.location.href = 'http://localhost/utility/';
+    });
+
+    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
+      window.location.href = 'http://localhost/utility/';
+    }else{
+      document.querySelector("#user_name_tv").innerHTML = "Welcome, "+sessionStorage.getItem("bsallinone_id");
+    }
+
+ </script>
+
+</body>
+</html>

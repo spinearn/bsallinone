@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Account</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 25px 0;
+  display: inline-block;
+  border: none;
+  font-size: 1.05em;
+  background: rgba(0,0,0,0.05);
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+  width: 100%;
+  background-color: #CB4335;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  opacity: 1;
+}
+
+input[type=submit]:hover {
+  opacity:0.9;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+.container p{
+    margin-top: 10px;
+}
+
+.progress_bar {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #000000;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 0.4s linear infinite; /* Safari */
+  animation: spin 0.4s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* hide any view */
+.hide_view{
+    display: none !important;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .main{
+    justify-content: flex-start;
+  }
+
+  form{
+    width: 100%;
+    border: none;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="main">
+
+<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbyHxEAooBC4B5VCKnzMsO82bWfe6wG_6mmKYOVAR9bELXU7jugaRw37TkZG0W_0gfyNPg/exec">
+  <div class="container">
+    <h1>Bs All In One</h1>
+    <p>Please fill in this form to login.</p></br>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="in_email_id" placeholder="Enter Email" name="Email" required>
+
+    <label><b>Password</b></label>
+    <input type="password" id="in_password" placeholder="Enter Password" name="Password" required>
+
+    <input type="submit" value="Log In" id="action_btn">
+    <p style="text-align: center;">Don't have an account? <a href="signup-account.html">Create new account</a></p>
+  </div>
+ </form>
+
+ <div class="progress_bar hide_view"></div>
+
+</div>
+
+<script>
+const progress_bar = document.querySelector('.progress_bar');
+const action_btn = document.querySelector('#action_btn');
+
+const in_email_id = document.querySelector('#in_email_id');
+const in_password = document.querySelector('#in_password');
+
+window.addEventListener("load", function() {
+
+  if(sessionStorage.getItem("bsallinone_id")!="" && sessionStorage.getItem("bsallinone_id")!=null){
+    window.location.href = 'http://localhost/utility/dashboard.html';
+  }
+
+  const form = document.getElementById('my-form');
+  form.addEventListener("submit", function(e) {
+   e.preventDefault();
+   progress_bar.classList.remove("hide_view");
+   action_btn.classList.add("hide_view");
+
+   let tempEmail = in_email_id.value;
+   let tempPassword = in_password.value;
+
+   fetch('https://sheets.googleapis.com/v4/spreadsheets/1JK1QeUhT-VDnYg740vfhU7qk5pyQcRBYpPzRF4sUBJY/?key=AIzaSyCCwjx6Rfduog6e_grpZV9FmDCIBammO0E&includeGridData=true')
+   .then((response) => response.json())
+   .then((data) => fetchAllRecords(data));
+
+    function fetchAllRecords(data){
+     for (let i = 1; i < data['sheets'][0]['data'][0]['rowData'].length-1; i++) {
+        
+      if(data['sheets'][0]['data'][0]['rowData'][i]['values'][0].hasOwnProperty('formattedValue')){
+        
+        if(data['sheets'][0]['data'][0]['rowData'][i]['values'][1]['formattedValue']==tempEmail
+        && data['sheets'][0]['data'][0]['rowData'][i]['values'][3]['formattedValue']==tempPassword){
+          sessionStorage.setItem("bsallinone_id", tempEmail);
+          window.location.href = 'http://localhost/utility/dashboard.html';
+        }
+
+        progress_bar.classList.add("hide_view");
+        action_btn.classList.remove("hide_view");
+      }
+     }
+    }
+
+  });
+});
+        
+</script>
+
+</body>
+</html>
