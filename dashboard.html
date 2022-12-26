@@ -98,11 +98,11 @@
     console.log(sessionStorage.getItem("bsallinone_id"));
     document.querySelector("#logout_btn").addEventListener("click",()=>{
       sessionStorage.clear()
-      window.location.href = 'https://github.com/spinearn/bsallinone/';
+      window.location.href = 'https://spinearn.github.io/bsallinone/';
     });
 
     if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
-      window.location.href = 'https://github.com/spinearn/bsallinone/';
+      window.location.href = 'https://spinearn.github.io/bsallinone/';
     }else{
       document.querySelector("#user_name_tv").innerHTML = "Welcome, "+sessionStorage.getItem("bsallinone_id");
     }
