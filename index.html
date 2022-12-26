@@ -159,7 +159,7 @@ const in_password = document.querySelector('#in_password');
 window.addEventListener("load", function() {
 
   if(sessionStorage.getItem("bsallinone_id")!="" && sessionStorage.getItem("bsallinone_id")!=null){
-    window.location.href = 'http://localhost/utility/dashboard.html';
+    window.location.href = 'https://github.com/spinearn/bsallinone/dashboard.html';
   }
 
   const form = document.getElementById('my-form');
@@ -183,7 +183,7 @@ window.addEventListener("load", function() {
         if(data['sheets'][0]['data'][0]['rowData'][i]['values'][1]['formattedValue']==tempEmail
         && data['sheets'][0]['data'][0]['rowData'][i]['values'][3]['formattedValue']==tempPassword){
           sessionStorage.setItem("bsallinone_id", tempEmail);
-          window.location.href = 'http://localhost/utility/dashboard.html';
+          window.location.href = 'https://github.com/spinearn/bsallinone/dashboard.html';
         }
 
         progress_bar.classList.add("hide_view");
