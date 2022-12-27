@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Bill Payments</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+.grid-container {
+  display: grid;
+  padding: 10px;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2,1fr);
+}
+.grid-item {
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.grid-item img{
+  height: 40px;
+}
+.grid-item p{
+    font-size: 1.05em;
+    margin-top: 10px;
+}
+
+.account-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.account-info p{
+    font-size: 1.05em;
+    margin-top: 10px;
+}
+.account-info button{
+    padding: 5px 10px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: #CB4335;
+}
+
+ </style>
+</head>
+<body>
+
+ <div class="account-info">
+    <h2>Bill Payments</h2>
+ </div></br>
+
+ <div class="grid-container">
+    <div class="grid-item">
+      <img src="../icons/electricity.png" alt="icon">
+      <p>Electricity</p>
+    </div>
+    <div class="grid-item">
+      <img src="../icons/gas.png" alt="icon">
+      <p>Gas</p>
+    </div> 
+    <div class="grid-item">
+      <img src="../icons/broadband.png" alt="icon">
+      <p>Broadband Postpaid</p>
+    </div> 
+    <div class="grid-item">
+      <img src="../icons/cable-tv.png" alt="icon">
+      <p>Cable TV</p>
+    </div> 
+    <div class="grid-item">
+      <img src="../icons/fast-tag.png" alt="icon">
+      <p>Fast Tag</p>
+    </div> 
+ </div>
+
+ <script>
+    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
+      window.location.href = 'https://spinearn.github.io/bsallinone/';
+    }
+ </script>
+
+</body>
+</html>
