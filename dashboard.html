@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Dashboard</title>
     <style>
 *{
@@ -12,6 +11,9 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
+}
+body{
+    background-color: rgba(0,0,0,0.01);
 }
 .grid-container {
   display: grid;
@@ -23,12 +25,15 @@
   padding: 30px 20px;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
-.grid-item i{
-    font-size: 2.5em;
+.grid-item img{
+  height: 40px;
 }
+
 .grid-item p{
     font-size: 1.1em;
     margin-top: 10px;
@@ -68,29 +73,38 @@
  </div></br>
 
  <div class="grid-container">
-    <div class="grid-item">
-        <i class='bx bxs-devices'></i>
+    <div class="grid-item" onclick="openNewWindow('recharge')">
+        <img src="icons/recharge.png" alt="icon">
         <p>Recharge</p>
     </div>
-    <div class="grid-item">
-        <i class='bx bxs-receipt'></i>
+    <div class="grid-item" onclick="openNewWindow('bills')">
+        <img src="icons/bill-payments.png" alt="icon">
         <p>Bill Payments</p>
     </div>
     <div class="grid-item">
-        <i class='bx bxs-shield-plus'></i>
+        <img src="icons/insurance.png" alt="icon">
         <p>Insurance</p>
     </div>  
     <div class="grid-item">
-        <i class='bx bx-transfer'></i>
+        <img src="icons/money-transfer.png" alt="icon">
         <p>Domestic Money bx-transfer</p>
     </div>
     <div class="grid-item">
-        <i class='bx bx-pulse' ></i>
+        <img src="icons/life-insurance.png" alt="icon">
         <p>LIC Premium</p>
     </div>
+    <div class="grid-item" onclick="openNewWindow('travel')">
+      <img src="icons/travel.png" alt="icon">
+      <p>Travel</p>
+    </div>
+
     <div class="grid-item">
-        <i class='bx bx-trip'></i>
-        <p>Travel</p>
+      <img src="icons/digital-india.png" alt="icon">
+      <p>E-Government Services</p>
+    </div>
+    <div class="grid-item">
+      <img src="icons/ecommerce.png" alt="icon">
+      <p>E-Commerce</p>
     </div>   
  </div>
 
@@ -105,6 +119,16 @@
       window.location.href = 'https://spinearn.github.io/bsallinone/';
     }else{
       document.querySelector("#user_name_tv").innerHTML = "Welcome, "+sessionStorage.getItem("bsallinone_id");
+    }
+
+    function openNewWindow(method){
+        if(method=="recharge"){
+            window.location.href = 'recharge/';
+        }else if(method=="bills"){
+            window.location.href = 'bills/';
+        }else if(method=="travel"){
+            window.location.href = 'travel/';
+        }
     }
 
  </script>
