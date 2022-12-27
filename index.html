@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Account</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Account</title>
 <style>
 *{
     padding: 0;
@@ -72,7 +72,17 @@ input[type=submit]:hover {
 .container {
   padding: 16px;
 }
-
+.app_icon_box{
+  display: flex;
+  align-items: center;
+}
+.container img{
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 .container p{
     margin-top: 10px;
 }
@@ -128,9 +138,12 @@ input[type=submit]:hover {
 
 <div class="main">
 
-<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbyHxEAooBC4B5VCKnzMsO82bWfe6wG_6mmKYOVAR9bELXU7jugaRw37TkZG0W_0gfyNPg/exec">
+<form method="POST" id="my-form">
   <div class="container">
-    <h1>Bs All In One</h1>
+    <div class="app_icon_box">
+      <img src="icons/app-icon.jpeg" alt="icon">
+      <h1>BS AIO</h1>
+    </div>
     <p>Please fill in this form to login.</p></br>
     <hr>
 
