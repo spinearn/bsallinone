@@ -109,16 +109,19 @@ body{
  </div>
 
  <script>
-    console.log(sessionStorage.getItem("bsallinone_id"));
     document.querySelector("#logout_btn").addEventListener("click",()=>{
-      sessionStorage.clear()
       window.location.href = 'https://spinearn.github.io/bsallinone/';
     });
+     
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    let getuserid = params.userid;
 
-    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
+    if(getuserid==""){
       window.location.href = 'https://spinearn.github.io/bsallinone/';
     }else{
-      document.querySelector("#user_name_tv").innerHTML = "Welcome, "+sessionStorage.getItem("bsallinone_id");
+      document.querySelector("#user_name_tv").innerHTML = "Welcome, "+getuserid;
     }
 
     function openNewWindow(method){
