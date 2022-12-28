@@ -163,6 +163,7 @@ input[type=submit]:hover {
 </div>
 
 <script>
+let isVerified = false;
 const progress_bar = document.querySelector('.progress_bar');
 const action_btn = document.querySelector('#action_btn');
 
@@ -184,7 +185,7 @@ window.addEventListener("load", function() {
    let tempEmail = in_email_id.value;
    let tempPassword = in_password.value;
 
-   fetch('https://sheets.googleapis.com/v4/spreadsheets/1JK1QeUhT-VDnYg740vfhU7qk5pyQcRBYpPzRF4sUBJY/?key=AIzaSyCCwjx6Rfduog6e_grpZV9FmDCIBammO0E&includeGridData=true')
+   fetch('https://sheets.googleapis.com/v4/spreadsheets/1j4ANJtCdbOkzrRkkyu_76TG4bOf9i7CcV6oJmF8q5CM/?key=AIzaSyBES2_tbeszyAdCacfXc9KZxO01apQbJ80&includeGridData=true')
    .then((response) => response.json())
    .then((data) => fetchAllRecords(data));
 
@@ -195,6 +196,7 @@ window.addEventListener("load", function() {
         
         if(data['sheets'][0]['data'][0]['rowData'][i]['values'][1]['formattedValue']==tempEmail
         && data['sheets'][0]['data'][0]['rowData'][i]['values'][3]['formattedValue']==tempPassword){
+          isVerified = true;
           sessionStorage.setItem("bsallinone_id", tempEmail);
           window.location.href = 'https://spinearn.github.io/bsallinone/dashboard.html';
         }
@@ -202,6 +204,11 @@ window.addEventListener("load", function() {
         progress_bar.classList.add("hide_view");
         action_btn.classList.remove("hide_view");
       }
+     }
+
+     if(!isVerified){
+      isVerified = false;
+      alert('Oops! Entered Email & Password not matched!');
      }
     }
 
