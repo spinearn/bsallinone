@@ -182,8 +182,13 @@ input[type=submit]:hover {
 
 <script>
 
-if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
-  window.location.href = 'https://spinearn.github.io/bsallinone/';
+const params = new Proxy(new URLSearchParams(window.location.search), {
+   get: (searchParams, prop) => searchParams.get(prop),
+});
+let getuserid = params.userid;
+
+if(getuserid==""){
+  location.replace("https://spinearn.github.io/bsallinone/");
 }
 
 const progress_bar = document.querySelector('.progress_bar');
@@ -191,7 +196,7 @@ const action_btn = document.querySelector('#action_btn');
 const in_email_id = document.querySelector('#in_email_id');
 const in_utr_code = document.querySelector('#in_utr_code');
 const in_recharge_amount = document.querySelector('#in_recharge_amount');
-in_email_id.value=sessionStorage.getItem("bsallinone_id");
+in_email_id.value=getuserid;
 
 window.addEventListener("load", function() {
   const form = document.getElementById('my-form');
