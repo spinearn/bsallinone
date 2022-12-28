@@ -171,11 +171,6 @@ const in_email_id = document.querySelector('#in_email_id');
 const in_password = document.querySelector('#in_password');
 
 window.addEventListener("load", function() {
-
-  if(sessionStorage.getItem("bsallinone_id")!="" && sessionStorage.getItem("bsallinone_id")!=null){
-    window.location.href = 'https://spinearn.github.io/bsallinone/dashboard.html';
-  }
-
   const form = document.getElementById('my-form');
   form.addEventListener("submit", function(e) {
    e.preventDefault();
