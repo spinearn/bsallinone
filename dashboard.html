@@ -127,13 +127,13 @@ body{
 
     function openNewWindow(method){
         if(method=="recharge"){
-            window.location.href = 'recharge/';
+           window.location.href = 'recharge/?userid='+getuserid;
         }else if(method=="bills"){
-            window.location.href = 'bills/';
+           window.location.href = 'bills/?userid='+getuserid;
         }else if(method=="travel"){
-            window.location.href = 'travel/';
+           window.location.href = 'travel/?userid='+getuserid;
         }else if(method=="gov-services"){
-            window.location.href = 'e-gov-services/';
+           window.location.href = 'e-gov-services/?userid='+getuserid;
         }
     }
 
