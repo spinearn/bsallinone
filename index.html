@@ -193,7 +193,7 @@ window.addEventListener("load", function() {
         && data['sheets'][0]['data'][0]['rowData'][i]['values'][3]['formattedValue']==tempPassword){
           isVerified = true;
           Handle.saveLogin(tempEmail);
-          window.location.href = 'https://spinearn.github.io/bsallinone/dashboard.html?userid='+tempEmail;
+          location.replace("https://spinearn.github.io/bsallinone/dashboard.html?userid="+tempEmail);
         }
 
         progress_bar.classList.add("hide_view");
