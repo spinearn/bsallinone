@@ -193,6 +193,7 @@ window.addEventListener("load", function() {
       .then(() => {
         progress_bar.classList.add("hide_view");
         action_btn.classList.remove("hide_view");
+        Handle.saveLogin(tempEmail);
         location.replace("https://spinearn.github.io/bsallinone/dashboard.html?userid="+tempEmail);
       })
      }
