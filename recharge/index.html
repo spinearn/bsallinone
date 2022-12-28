@@ -76,13 +76,18 @@
  </div>
  
  <script>
-    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
-      window.location.href = 'https://spinearn.github.io/bsallinone/';
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    let getuserid = params.userid;
+
+    if(getuserid==""){
+      location.replace("https://spinearn.github.io/bsallinone/");
     }
 
     function openNewWindow(method){
       if(method=="mobile"){
-        window.location.href = 'mobile_recharge.html';
+        window.location.href = 'mobile_recharge.html?userid='+getuserid;
       }else if(method=="dth"){
         window.location.href = 'bills/';
       }
