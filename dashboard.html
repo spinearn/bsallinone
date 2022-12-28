@@ -111,7 +111,7 @@ body{
  <script>
     document.querySelector("#logout_btn").addEventListener("click",()=>{
       Handle.logoutAccount();
-      window.location.href = 'https://spinearn.github.io/bsallinone/';
+      location.replace("https://spinearn.github.io/bsallinone/");
     });
      
     const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -120,7 +120,7 @@ body{
     let getuserid = params.userid;
 
     if(getuserid==""){
-      window.location.href = 'https://spinearn.github.io/bsallinone/';
+      location.replace("https://spinearn.github.io/bsallinone/");
     }else{
       document.querySelector("#user_name_tv").innerHTML = "Welcome, "+getuserid;
     }
