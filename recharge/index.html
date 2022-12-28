@@ -65,19 +65,27 @@
  </div></br>
 
  <div class="grid-container">
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('mobile')">
       <img src="../icons/mobile-recharge.png" alt="icon">
       <p>Mobile</p>
     </div>
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('dth')">
       <img src="../icons/dth-recharge.png" alt="icon">
       <p>DTH</p>
     </div>
  </div>
-
+ 
  <script>
     if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
       window.location.href = 'https://spinearn.github.io/bsallinone/';
+    }
+
+    function openNewWindow(method){
+      if(method=="mobile"){
+        window.location.href = 'mobile_recharge.html';
+      }else if(method=="dth"){
+        window.location.href = 'bills/';
+      }
     }
  </script>
 
