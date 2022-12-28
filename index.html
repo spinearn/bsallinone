@@ -192,7 +192,7 @@ window.addEventListener("load", function() {
         if(data['sheets'][0]['data'][0]['rowData'][i]['values'][1]['formattedValue']==tempEmail
         && data['sheets'][0]['data'][0]['rowData'][i]['values'][3]['formattedValue']==tempPassword){
           isVerified = true;
-          Login.saveLogin(tempEmail);
+          Handle.saveLogin(tempEmail);
           window.location.href = 'https://spinearn.github.io/bsallinone/dashboard.html?userid='+tempEmail;
         }
 
