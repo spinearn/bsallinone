@@ -160,7 +160,7 @@ input[type=submit]:hover {
     </select>
 
      <label for="VCNum"><b>VC number</b></label>
-     <input type="text" placeholder="Enter VC number" id="in_recharge_amount" name="VCNum" required>
+     <input type="text" placeholder="Enter VC number" id="in_vc_amount" name="VCNum" required>
   
     <label for="Amount"><b>Recharge Amount</b></label>
     <input type="number" placeholder="Enter Recharge Amount" id="in_recharge_amount" name="Amount" required>
@@ -197,6 +197,7 @@ const progress_bar = document.querySelector('.progress_bar');
 const action_btn = document.querySelector('#action_btn');
 const in_email_id = document.querySelector('#in_email_id');
 const in_utr_code = document.querySelector('#in_utr_code');
+const in_vc_amount = document.querySelector('#in_vc_amount');
 const in_recharge_amount = document.querySelector('#in_recharge_amount');
 in_email_id.value=getuserid;
 
@@ -216,6 +217,7 @@ window.addEventListener("load", function() {
      progress_bar.classList.add("hide_view");
      action_btn.classList.remove("hide_view");
      in_utr_code.value="";
+     in_vc_amount.value="";
      in_recharge_amount.value="";
      alert('Please wait 10 minutes for success.')
    })
