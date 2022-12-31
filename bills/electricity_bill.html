@@ -151,16 +151,17 @@ input[type=submit]:hover {
     <input type="number" placeholder="Enter Phone Number" name="Phone" required>
 
     <label for="operator"><b>Choose Operator</b></label>
-    <select name="Operator" id="operator">
-      <option value="Airtel Digital TV" selected>Airtel Digital TV</option>
-      <option value="Tata Play(Tata Sky)">Tata Play(Tata Sky)</option>
-      <option value="Dish TV">Dish TV</option>
-      <option value="d2h">d2h</option>
-      <option value="Sun Direct">Sun Direct</option>
+    <select name="Board" id="operator">
+      <option value="CESC Limited" selected>CESC Limited</option>
+      <option value="India Power Corporation Limited (IPCL)">India Power Corporation Limited (IPCL)</option>
+      <option value="West Bengal Electricity">West Bengal Electricity</option>
     </select>
 
-     <label for="VCNum"><b>VC number</b></label>
-     <input type="text" placeholder="Enter VC number" id="in_recharge_amount" name="VCNum" required>
+     <label for="State"><b>State</b></label>
+     <input type="text" placeholder="Enter State" name="State" value="West Bengal" required disabled>
+  
+     <label for="consumerid"><b>Consumer Id</b></label>
+     <input type="text" placeholder="Enter Consumer Id" name="consumerid" required>
   
     <label for="Amount"><b>Recharge Amount</b></label>
     <input type="number" placeholder="Enter Recharge Amount" id="in_recharge_amount" name="Amount" required>
