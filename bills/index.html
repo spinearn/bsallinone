@@ -65,15 +65,15 @@
  </div></br>
 
  <div class="grid-container">
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('electricity')">
       <img src="../icons/electricity.png" alt="icon">
       <p>Electricity</p>
     </div>
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('gas')">
       <img src="../icons/gas.png" alt="icon">
       <p>Gas</p>
     </div> 
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('')">
       <img src="../icons/broadband.png" alt="icon">
       <p>Broadband Postpaid</p>
     </div> 
@@ -87,11 +87,24 @@
     </div> 
  </div>
 
- <script>
-    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
-      window.location.href = 'https://spinearn.github.io/bsallinone/';
-    }
- </script>
+<script>
+const params = new Proxy(new URLSearchParams(window.location.search), {
+   get: (searchParams, prop) => searchParams.get(prop),
+});
+let getuserid = params.userid;
+
+if(getuserid==""){
+  location.replace("https://spinearn.github.io/bsallinone/");
+}
+  
+function openNewWindow(method){
+   if(method=="electricity"){
+     window.location.href = 'electricity_bill.html?userid='+getuserid;
+   }else if(method=="gas"){
+     window.location.href = 'dth_recharge.html?userid='+getuserid;
+   }
+ }
+</script>
 
 </body>
 </html>
