@@ -140,9 +140,9 @@ input[type=submit]:hover {
 
 <div class="main">
 
-<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbxmxU_-ms1LGeFh9kiHFivYuEF2iWv-KTY7Wa90nnSwk6axrHWpKixAHBS3eXsXxOWcmg/exec">
+<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbz6vWmkl8eUCHDZooLEz1rxXP-XLC7p8DfQJgPDBK0NnARpECP6-R81oDr2PXtNg3hxJg/exec">
   <div class="container">
-    <h1>Mobile Recharge</h1></br>
+    <h1>DTH Recharge</h1></br>
     <hr>
 
     <input type="email" placeholder="Enter Email Id" name="Email" id="in_email_id" style="display:none;" required>
@@ -159,8 +159,11 @@ input[type=submit]:hover {
       <option value="Sun Direct">Sun Direct</option>
     </select>
 
-    <label for="Amount"><b>VC number</b></label>
-    <input type="number" placeholder="Enter VC number" id="in_recharge_amount" name="Amount" required>
+     <label for="VCNum"><b>VC number</b></label>
+     <input type="text" placeholder="Enter VC number" id="in_recharge_amount" name="VCNum" required>
+  
+    <label for="Amount"><b>Recharge Amount</b></label>
+    <input type="number" placeholder="Enter Recharge Amount" id="in_recharge_amount" name="Amount" required>
 
     <div class="payments_container">
       <h3>Pay by our qr code</h3>
