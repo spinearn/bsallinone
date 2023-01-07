@@ -85,9 +85,9 @@ body{
         <img src="icons/insurance.png" alt="icon">
         <p>Insurance</p>
     </div>  
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('transfer')">
         <img src="icons/money-transfer.png" alt="icon">
-        <p>Domestic Money bx-transfer</p>
+        <p>Domestic Money transfer</p>
     </div>
     <div class="grid-item">
         <img src="icons/life-insurance.png" alt="icon">
@@ -134,6 +134,8 @@ body{
            window.location.href = 'travel/?userid='+getuserid;
         }else if(method=="gov-services"){
            window.location.href = 'e-gov-services/?userid='+getuserid;
+        }else if(method=="transfer"){
+           window.location.href = 'money-transfer/?userid='+getuserid;
         }
     }
 
