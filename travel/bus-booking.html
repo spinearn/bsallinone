@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Booking</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.08);;
+}
+/* Full-width input fields */
+input[type=text], input[type=number],select {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 25px 0;
+  display: inline-block;
+  border: none;
+  font-size: 1.05em;
+  background: rgba(0,0,0,0.05);
+}
+
+input[type=text]:focus, input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+  width: 100%;
+  background-color: #CB4335;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  opacity: 1;
+}
+
+input[type=submit]:hover {
+  opacity:0.9;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+.container p{
+    margin-top: 10px;
+}
+
+.payments_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5px 0 25px 0;
+}
+
+.payments_container img{
+  height: 200px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.progress_bar {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #000000;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 0.4s linear infinite; /* Safari */
+  animation: spin 0.4s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* hide any view */
+.hide_view{
+    display: none !important;
+}
+
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .main{
+    justify-content: flex-start;
+  }
+
+  form{
+    width: 100%;
+    border: none;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="main">
+
+<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbw7BTfbAD7gFRE56g8LpblCd5pBxa8xRARH5PpT4MA5-4s2HX2MiCxnIsnSOUIcVYmV/exec">
+  <div class="container">
+    <h1>Bus Booking</h1></br>
+    <hr>
+
+    <input type="email" placeholder="Enter Email Id" name="Email" id="in_email_id" style="display:none;" required>
+
+    <label for="Name"><b>Full Name</b></label>
+    <input type="text" placeholder="Enter Name" id="in_user_name" name="Name" required>
+  
+    <label for="Phone"><b>Phone Number</b></label>
+    <input type="number" placeholder="Enter Phone Number" name="Phone" required>
+
+    <label for="operator"><b>Choose Operator</b></label>
+    <select name="Board" id="operator">
+      <option value="CESC Limited" selected>CESC Limited</option>
+      <option value="India Power Corporation Limited (IPCL)">India Power Corporation Limited (IPCL)</option>
+      <option value="West Bengal Electricity">West Bengal Electricity</option>
+    </select>
+
+     <label for="Account"><b>Account Number</b></label>
+     <input type="text" placeholder="Enter Account Number" id="in_account_num" name="Account" required>
+  
+     <label for="Ifsc"><b>IFSC Code</b></label>
+     <input type="text" placeholder="Enter IFSC code" name="Ifsc" required>
+  
+    <label for="Amount"><b>Transfer Amount</b></label>
+    <input type="number" placeholder="Enter Transfer Amount" id="in_recharge_amount" name="Amount" required>
+
+    <div class="payments_container">
+      <h3>Pay by our qr code</h3>
+      <p>8250431017@ybl</p>
+      <img src="../icons/payments_qr.jpeg" alt="icon">
+    </div>
+
+    <label for="Utr"><b>12 digit UTR code</b></label>
+    <input type="number" placeholder="Enter 12 digit UTR code" id="in_utr_code" name="Utr" required>
+
+    <input type="submit" value="Submit" id="action_btn">
+  </div>
+ </form>
+
+ <div class="progress_bar hide_view"></div>
+
+</div>
+
+<script>
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+   get: (searchParams, prop) => searchParams.get(prop),
+});
+let getuserid = params.userid;
+
+if(getuserid==""){
+  location.replace("https://spinearn.github.io/bsallinone/");
+}
+
+const progress_bar = document.querySelector('.progress_bar');
+const action_btn = document.querySelector('#action_btn');
+const in_email_id = document.querySelector('#in_email_id');
+const in_utr_code = document.querySelector('#in_utr_code');
+const in_account_num = document.querySelector('#in_account_num');
+const in_recharge_amount = document.querySelector('#in_recharge_amount');
+in_email_id.value=getuserid;
+
+window.addEventListener("load", function() {
+  const form = document.getElementById('my-form');
+  form.addEventListener("submit", function(e) {
+   e.preventDefault();
+   progress_bar.classList.remove("hide_view");
+   action_btn.classList.add("hide_view");
+   const data = new FormData(form);
+   const action = e.target.action;
+   fetch(action, {
+     method: 'POST',
+     body: data,
+   })
+   .then(() => {
+     progress_bar.classList.add("hide_view");
+     action_btn.classList.remove("hide_view");
+     in_utr_code.value="";
+     in_recharge_amount.value="";
+     in_account_num.value="";
+     alert('Please wait 10 minutes for success.')
+   })
+  });
+});
+        
+</script>
+
+</body>
+</html>
