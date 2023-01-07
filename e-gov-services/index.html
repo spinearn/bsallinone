@@ -65,17 +65,28 @@
  </div></br>
 
  <div class="grid-container">
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('pancard')">
       <img src="../icons/pan-card.png" alt="icon">
       <p>Pan Card</p>
     </div>
  </div>
 
- <script>
-    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
-      window.location.href = 'https://spinearn.github.io/bsallinone/';
-    }
- </script>
+<script>
+const params = new Proxy(new URLSearchParams(window.location.search), {
+   get: (searchParams, prop) => searchParams.get(prop),
+});
+let getuserid = params.userid;
+
+if(getuserid==""){
+  location.replace("https://spinearn.github.io/bsallinone/");
+}
+  
+function openNewWindow(method){
+   if(method=="pancard"){
+     window.location.href = 'electricity_bill.html?userid='+getuserid;
+   }
+ }
+</script>
 
 </body>
 </html>
