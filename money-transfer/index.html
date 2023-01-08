@@ -292,7 +292,6 @@ const action_btn = document.querySelector('#action_btn');
 const in_email_id = document.querySelector('#in_email_id');
 const in_utr_code = document.querySelector('#in_utr_code');
 const in_account_num = document.querySelector('#in_account_num');
-const in_recharge_amount = document.querySelector('#in_recharge_amount');
 in_email_id.value=getuserid;
 
 window.addEventListener("load", function() {
@@ -311,7 +310,6 @@ window.addEventListener("load", function() {
      progress_bar.classList.add("hide_view");
      action_btn.classList.remove("hide_view");
      in_utr_code.value="";
-     in_recharge_amount.value="";
      in_account_num.value="";
      alert('Please wait 10 minutes for success.')
    })
