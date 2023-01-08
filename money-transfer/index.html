@@ -155,7 +155,9 @@ input[type=submit]:hover {
     <input type="number" placeholder="Enter Phone Number" name="Phone" required>
   
     <label for="bank"><b>Choose Bank</b></label>
-    <select name="bank" id="bank">
+  
+    <input type="text" name="bank" placeholder="Choose Bank" list="allbanks" required>
+    <datalist id="allbanks">
       <option value="Bank of Baroda" selected>Bank of Baroda</option>
       <option value="Bank of India">Bank of India</option>
       <option value="Bank of Maharashtra">Bank of Maharashtra</option>
@@ -247,7 +249,7 @@ input[type=submit]:hover {
       <option value="Aryavart Bank">Aryavart Bank</option>
       <option value="Prathama UP Gramin Bank">Prathama UP Gramin Bank</option>
       <option value="Baroda UP Bank">Baroda UP Bank</option>
-    </select>
+     </datalist>  
 
      <label for="Account"><b>Account Number</b></label>
      <input type="text" placeholder="Enter Account Number" id="in_account_num" name="Account" required>
