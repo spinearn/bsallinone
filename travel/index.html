@@ -69,7 +69,7 @@
       <img src="../icons/train.png" alt="icon">
       <p>Train Ticket</p>
     </div>
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('bus-booking')">
       <img src="../icons/bus.png" alt="icon">
       <p>Bus Ticket</p>
     </div> 
@@ -83,11 +83,22 @@
     </div>
  </div>
 
- <script>
-    if(sessionStorage.getItem("bsallinone_id")=="" || sessionStorage.getItem("bsallinone_id")==null){
-      window.location.href = 'https://spinearn.github.io/bsallinone/';
-    }
- </script>
+<script>
+const params = new Proxy(new URLSearchParams(window.location.search), {
+   get: (searchParams, prop) => searchParams.get(prop),
+});
+let getuserid = params.userid;
+
+if(getuserid==""){
+  location.replace("https://spinearn.github.io/bsallinone/");
+}
+  
+function openNewWindow(method){
+   if(method=="bus-booking"){
+     window.location.href = 'bus-booking.html?userid='+getuserid;
+   }
+ }
+</script>
 
 </body>
 </html>
