@@ -102,9 +102,15 @@ body{
       <img src="icons/digital-india.png" alt="icon">
       <p>E-Government Services</p>
     </div>
+     
     <div class="grid-item">
       <img src="icons/ecommerce.png" alt="icon">
       <p>E-Commerce</p>
+    </div>   
+     
+    <div class="grid-item" onclick="openNewWindow('income-tax')">
+      <img src="icons/income-tax-department-icon.png" alt="icon">
+      <p>Income tax department</p>
     </div>   
  </div>
 
@@ -135,6 +141,8 @@ body{
         }else if(method=="gov-services"){
            window.location.href = 'e-gov-services/?userid='+getuserid;
         }else if(method=="transfer"){
+           window.location.href = 'money-transfer/?userid='+getuserid;
+        }else if(method=="income-tax"){
            window.location.href = 'money-transfer/?userid='+getuserid;
         }
     }
