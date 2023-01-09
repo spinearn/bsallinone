@@ -89,7 +89,7 @@ body{
         <img src="icons/money-transfer.png" alt="icon">
         <p>Domestic Money transfer</p>
     </div>
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('lic-premium')">
         <img src="icons/life-insurance.png" alt="icon">
         <p>LIC Premium</p>
     </div>
@@ -144,6 +144,8 @@ body{
            window.location.href = 'money-transfer/?userid='+getuserid;
         }else if(method=="income-tax"){
            window.location.href = 'income-tax/?userid='+getuserid;
+        }else if(method=="lic-premium"){
+           window.location.href = 'lic-premium/?userid='+getuserid;
         }
     }
 
