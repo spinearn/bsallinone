@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>E-Commerce</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+.grid-container {
+  display: grid;
+  padding: 10px;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2,1fr);
+}
+.grid-item {
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
 
+.grid-item img{
+  height: 40px;
+}
+.grid-item p{
+    font-size: 1.05em;
+    margin-top: 10px;
+}
+
+.account-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.account-info p{
+    font-size: 1.05em;
+    margin-top: 10px;
+}
+.account-info button{
+    padding: 5px 10px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: #CB4335;
+}
+
+ </style>
+</head>
+<body>
+
+ <div class="account-info">
+    <h2>E-Commerce</h2>
+ </div></br>
+
+ <div class="grid-container">
+    <div class="grid-item">
+      <img src="../icons/amazon-icon.png" alt="icon">
+      <p>Amazon</p>
+    </div>
+    <div class="grid-item" onclick="openNewWindow('bus-booking')">
+      <img src="../icons/flipkart-icon.png" alt="icon">
+      <p>Flipkart</p>
+    </div> 
+    <div class="grid-item">
+      <img src="../icons/myntra-icon.png" alt="icon">
+      <p>Myntra</p>
+    </div>
+ </div>
+
+<script>
+const params = new Proxy(new URLSearchParams(window.location.search), {
+   get: (searchParams, prop) => searchParams.get(prop),
+});
+let getuserid = params.userid;
+
+if(getuserid==""){
+  location.replace("https://spinearn.github.io/bsallinone/");
+}
+  
+function openNewWindow(method){
+   if(method=="bus-booking"){
+     window.location.href = 'bus-booking.html?userid='+getuserid;
+   }
+ }
+</script>
+
+</body>
+</html>
