@@ -147,21 +147,22 @@ input[type=submit]:hover {
     <hr>
 
     <input type="email" placeholder="Enter Email Id" name="Email" id="in_email_id" style="display:none;" required>
-
-    <label for="Name"><b>Full Name</b></label>
-    <input type="text" placeholder="Enter Name" id="in_user_name" name="Name" required>
   
     <label for="Phone"><b>Phone Number</b></label>
     <input type="number" placeholder="Enter Phone Number" name="Phone" required>
+  
+    <label for="operator"><b>Select Bus</b></label>
+    <select name="Bus" id="operator">
+      <option value="SBSTC" selected>SBSTC</option>
+      <option value="NBSTC">NBSTC</option>
+      <option value="WBTC">WBTC</option>
+    </select>
 
-     <label for="Account"><b>Account Number</b></label>
-     <input type="text" placeholder="Enter Account Number" id="in_account_num" name="Account" required>
+     <label for="Seats"><b>Seat Quantity</b></label>
+     <input type="text" placeholder="Enter Seat Quantity" id="in_seat_quantity" name="Seats" required>
   
-     <label for="Ifsc"><b>IFSC Code</b></label>
-     <input type="text" placeholder="Enter IFSC code" name="Ifsc" required>
-  
-    <label for="Amount"><b>Transfer Amount</b></label>
-    <input type="number" placeholder="Enter Transfer Amount" id="in_recharge_amount" name="Amount" required>
+    <label for="Amount"><b>Amount</b></label>
+    <input type="number" placeholder="Enter Amount" id="in_recharge_amount" name="Amount" required>
 
     <div class="payments_container">
       <h3>Pay by our qr code</h3>
@@ -195,7 +196,7 @@ const progress_bar = document.querySelector('.progress_bar');
 const action_btn = document.querySelector('#action_btn');
 const in_email_id = document.querySelector('#in_email_id');
 const in_utr_code = document.querySelector('#in_utr_code');
-const in_account_num = document.querySelector('#in_account_num');
+const in_seat_quantity = document.querySelector('#in_seat_quantity');
 const in_recharge_amount = document.querySelector('#in_recharge_amount');
 in_email_id.value=getuserid;
 
@@ -216,7 +217,7 @@ window.addEventListener("load", function() {
      action_btn.classList.remove("hide_view");
      in_utr_code.value="";
      in_recharge_amount.value="";
-     in_account_num.value="";
+     in_seat_quantity.value="";
      alert('Please wait 10 minutes for success.')
    })
   });
