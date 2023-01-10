@@ -103,7 +103,7 @@ body{
       <p>E-Government Services</p>
     </div>
      
-    <div class="grid-item">
+    <div class="grid-item" onclick="openNewWindow('e-commerce')">
       <img src="icons/ecommerce.png" alt="icon">
       <p>E-Commerce</p>
     </div>   
@@ -146,6 +146,8 @@ body{
            window.location.href = 'income-tax/?userid='+getuserid;
         }else if(method=="lic-premium"){
            window.location.href = 'lic-premium/?userid='+getuserid;
+        }else if(method=="e-commerce"){
+           window.location.href = 'e-commerce/?userid='+getuserid;
         }
     }
 
