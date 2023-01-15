@@ -140,30 +140,21 @@ input[type=submit]:hover {
 
 <div class="main">
 
-<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbyWU3_l3Ri_PCBAUR1HKmzvkxUjkNNyWTXbE22r8_8ZdcVaQ_Ja5hAHtUAPPEQayNrW/exec">
+<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbycM-tiNradO2oXQktQAlh7Oc4wQvs35idZK3OSs88E9RGSAA5CCRH0IQhqeVjroesP/exec">
   <div class="container">
     <h1>LIC New Plan</h1></br>
     <hr>
 
     <input type="email" placeholder="Enter Email Id" name="Email" id="in_email_id" style="display:none;" required>
 
-<!--     <label for="Phone"><b>Phone Number</b></label>
-    <input type="number" placeholder="Enter Phone Number" name="Phone" required> -->
+    <label for="Phone"><b>Phone Number</b></label>
+    <input type="number" placeholder="Enter Phone Number" name="Phone" id="in_phone" required>
 
-     <label for="PlanRegistration"><b>New Plan Registration</b></label>
-     <input type="text" placeholder="Enter New Plan Registration" name="PlanRegistration" id="in_new_plan" required>
+    <label for="Name"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Full Name" name="Name" id="in_name" required>
   
-     <label for="PremiumPayment"><b>Premium Payment</b></label>
-     <input type="text" placeholder="Enter Premium Payment" name="PremiumPayment" id="in_premium_pay" required>
-
-    <div class="payments_container">
-      <h3>Pay by our qr code</h3>
-      <p>8250431017@ybl</p>
-      <img src="../icons/payments_qr.jpeg" alt="icon">
-    </div>
-
-    <label for="Utr"><b>12 digit UTR code</b></label>
-    <input type="number" placeholder="Enter 12 digit UTR code" id="in_utr_code" name="Utr" required>
+     <label for="Age"><b>Age</b></label>
+    <input type="number" placeholder="Enter Age" name="Age" id="in_age" required>
 
     <input type="submit" value="Submit" id="action_btn">
   </div>
@@ -187,9 +178,9 @@ if(getuserid==""){
 const progress_bar = document.querySelector('.progress_bar');
 const action_btn = document.querySelector('#action_btn');
 const in_email_id = document.querySelector('#in_email_id');
-const in_utr_code = document.querySelector('#in_utr_code');
-const in_premium_pay = document.querySelector('#in_premium_pay');
-const in_new_plan = document.querySelector('#in_new_plan');
+const in_age = document.querySelector('#in_age');
+const in_name = document.querySelector('#in_name');
+const in_phone = document.querySelector('#in_phone');
 in_email_id.value=getuserid;
 
 window.addEventListener("load", function() {
@@ -207,9 +198,9 @@ window.addEventListener("load", function() {
    .then(() => {
      progress_bar.classList.add("hide_view");
      action_btn.classList.remove("hide_view");
-     in_utr_code.value="";
-     in_premium_pay.value="";
-     in_new_plan.value="";
+     in_phone.value="";
+     in_age.value="";
+     in_name.value="";
      alert('Please wait 10 minutes for success.')
    })
   });
