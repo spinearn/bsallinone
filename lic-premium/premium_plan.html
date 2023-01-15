@@ -150,8 +150,8 @@ input[type=submit]:hover {
 <!--     <label for="Phone"><b>Phone Number</b></label>
     <input type="number" placeholder="Enter Phone Number" name="Phone" required> -->
 
-     <label for="PlanRegistration"><b>New Plan Registration</b></label>
-     <input type="text" placeholder="Enter New Plan Registration" name="PlanRegistration" id="in_new_plan" required>
+     <label for="Policy"><b>Policy Number</b></label>
+     <input type="text" placeholder="Enter Policy Number" name="Policy" required>
   
      <label for="PremiumPayment"><b>Premium Payment</b></label>
      <input type="text" placeholder="Enter Premium Payment" name="PremiumPayment" id="in_premium_pay" required>
@@ -189,7 +189,6 @@ const action_btn = document.querySelector('#action_btn');
 const in_email_id = document.querySelector('#in_email_id');
 const in_utr_code = document.querySelector('#in_utr_code');
 const in_premium_pay = document.querySelector('#in_premium_pay');
-const in_new_plan = document.querySelector('#in_new_plan');
 in_email_id.value=getuserid;
 
 window.addEventListener("load", function() {
@@ -209,7 +208,6 @@ window.addEventListener("load", function() {
      action_btn.classList.remove("hide_view");
      in_utr_code.value="";
      in_premium_pay.value="";
-     in_new_plan.value="";
      alert('Please wait 10 minutes for success.')
    })
   });
