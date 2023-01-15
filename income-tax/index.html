@@ -156,14 +156,14 @@ input[type=submit]:hover {
      <label for="Aadhaar"><b>Aadhaar Card Number</b></label>
      <input type="text" placeholder="Enter Aadhaar Card Number" name="Aadhaar" id="in_aadhaar_num" required>
 
-    <div class="payments_container">
-      <h3>Pay by our qr code</h3>
-      <p>8250431017@ybl</p>
-      <img src="../icons/payments_qr.jpeg" alt="icon">
-    </div>
-
-    <label for="Utr"><b>12 digit UTR code</b></label>
-    <input type="number" placeholder="Enter 12 digit UTR code" id="in_utr_code" name="Utr" required>
+    <label for="operator"><b>Choose Assessment Year</b></label>
+    <select name="Assessment" id="operator">
+      <option value="2021-2022" selected>2021-2022</option>
+      <option value="2022-2023">2022-2023</option>
+      <option value="2023-2024">2023-2024</option>
+      <option value="2024-2025">2024-2025</option>
+      <option value="2025-2026">2025-2026</option>
+    </select>
 
     <input type="submit" value="Submit" id="action_btn">
   </div>
