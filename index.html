@@ -185,7 +185,7 @@ window.addEventListener("load", function() {
    .then((data) => fetchAllRecords(data));
 
     function fetchAllRecords(data){
-     for (let i = 1; i < data['sheets'][0]['data'][0]['rowData'].length-1; i++) {
+     for (let i = 1; i < data['sheets'][0]['data'][0]['rowData'].length; i++) {
         
       if(data['sheets'][0]['data'][0]['rowData'][i]['values'][0].hasOwnProperty('formattedValue')){
         
